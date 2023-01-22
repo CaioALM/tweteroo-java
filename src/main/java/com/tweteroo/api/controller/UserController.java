@@ -1,13 +1,12 @@
 package com.tweteroo.api.controller;
 
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.beans.factory.annotation.*;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import com.tweteroo.api.model.*;
-import com.tweteroo.api.repository.*;
+import com.tweteroo.api.repository.UserRepository;
 import com.tweteroo.api.dto.*;
 
 @RestController
@@ -17,6 +16,11 @@ public class UserController {
 
     @Autowired
     private UserRepository repository;
+
+    @GetMapping
+    public List <User> listAll() {
+        return repository.findAll();
+    }
 
     @PostMapping
     public void createUser(@RequestBody UserDTO req) {

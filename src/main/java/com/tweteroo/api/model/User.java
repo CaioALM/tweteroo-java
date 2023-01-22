@@ -1,15 +1,15 @@
 package com.tweteroo.api.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
+
 import lombok.Data;
-import com.tweteroo.api.dto.*;
+import lombok.NoArgsConstructor;
+import com.tweteroo.api.dto.UserDTO;
 
 @Data
 @Entity
+@Table(name = "Users")
+@NoArgsConstructor
 
 public class User {
 
@@ -20,12 +20,12 @@ public class User {
     }
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(length = 200, nullable = false)
     private String username;
 
-    @Column(length = 500, nullable = false)
+    @Column(length = 1000, nullable = false)
     private String avatar;
 }
