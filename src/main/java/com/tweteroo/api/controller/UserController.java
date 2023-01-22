@@ -17,10 +17,7 @@ public class UserController {
     @Autowired
     private UserRepository repository;
 
-    @GetMapping
-    public List <User> listAll() {
-        return repository.findAll();
-    }
+
 
     @PostMapping
     public void createUser(@RequestBody UserDTO req) {
